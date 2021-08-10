@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}products.category__title{% endblock %}
+
+{% block slider %}
+{% endblock %}
+{% block content %}
+    <div class="maincontent-area">
+        <div class="zigzag-bottom"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <h2 class="section-title">Latest Products</h2>
+                        <div class="product-carousel">
+                            {% for item in products %}
+                            <div class="single-product">
+                                 <h1 class="section-title" style="color: #1bd172">{{ item.category.title }}</h1>
+                                <div class="product-f-image">
+                                    <img src="{{ item.photos.url }}" alt="">
+                                    <div class="product-hover">
+                                        <a href="{% url 'show_by_name' item.slug %}" class="view-details-link"><i
+                                                class="fa fa-link"></i> See details</a>
+                                    </div>
+                                </div>
+
+                                <h2><a href="{% url 'show_by_name' item.slug %}">{{ item.title }}</a></h2>
+
+                                <div class="product-carousel-price">
+                                    <ins>{{ item.price }}</ins>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+                        </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
