@@ -5,8 +5,9 @@ from Products.models import Category
 
 class Home(ListView):
     model = Category
-    template_name = 'Pages/main_page.html'
+    template_name = 'base.html'
     context_object_name = 'cat'
+
 
 def about_us(request):
     return render(request, 'Pages/about_us.html')
@@ -18,4 +19,3 @@ def other(request):
 
 def contacts(request):
     return render(request, 'Pages/contacts.html')
-

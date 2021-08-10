@@ -1,6 +1,2 @@
 {% extends 'base.html' %}
-{% block content %}
-    {% for item in cat %}
-    <h1><a href="{% url 'show_by_categories' item.slug %}">{{ item.title }}</a></h1>
-    {% endfor %}
-{%  endblock %}
+{% load products_tags %}

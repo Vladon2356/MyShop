@@ -1,37 +1,31 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}{{ product.title }}{% endblock %}
 {% block slider %}
 {% endblock %}
-
 {% block content %}
-    <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
-        <div class="col-md-8">
-            <div class="product-content-right">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="product-images">
-                            <div class="product-main-img">
-                                <img src="{{ product.photos.url }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6">
-                        <div class="product-inner">
-                            <h2 class="product-name">{{ product.title }}</h2>
-                            <div class="product-inner-price">
-                                <ins>{{ product.price }}</ins>
-                                <del>$100.00</del>
-
-                            </div>
-                            <p>{{ product.descriptions }}</p>
+    <div class="wrapper">
+        <main class="main">
+            <div class="title-wrapper">
+                <div class="catalog-title title container"><h2 class="catalog-title__text">{{ product.title }}</h2>
+                </div>
+            </div>
+            <section class="item-card">
+                <div class="container">
+                    <div class="item-card__wrapper">
+                        <div class="item-card__image"><img src="{{ product.photos.url }}" alt=""></div>
+                        <div class="item-card__info info-item">
+                            <div class="info-item__price">{{ product.price }}грн</div>
+                            {% if product.is_published %}
+                                <div class="info-item__availability available info-item">В наявності</div>
+                            {% else %}
+                                <div class="info-item__availability info-item" style="background: rgba(224,42,8,0.78)">
+                                    Відсутній
+                                </div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </section>
+        </main>
     </div>
-
 {% endblock %}
