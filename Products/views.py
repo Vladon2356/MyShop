@@ -4,7 +4,6 @@ from django.views.generic import ListView, DetailView, CreateView
 from .models import Products
 
 
-
 class ShowByCategory(ListView):
     model = Products
     template_name = 'Products/show_by_category.html'
@@ -27,5 +26,3 @@ class ShowProduct(DetailView):
 def show_product(request, slug):
     pr = Products.objects.filter(slug=slug)
     return render(request, 'Products/show_product.html', {'products': pr})
-
-

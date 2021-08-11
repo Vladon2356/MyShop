@@ -25,10 +25,10 @@
             {% for category in categories %}
                 <section class="products">
                     <div class="products-title"><h2 class="products-title__text"><a
-                            href="{% url 'show_by_name' category.slug %}">{{ category.title }}</a></h2></div>
+                            href="{% url 'show_by_categories' category.slug %}">{{ category.title }}</a></h2></div>
                     <div class="container">
                         <div class="products-row">
-                            {% get_products_by_category category.pk as producst %}
+                            {% get_products_by_category category.pk as products %}
                             {% for product in products %}
                                 <div class="products-row__item item-products">
                                     <div class="item-products__image"><img src="{{ product.photos.url }}"

@@ -6,7 +6,7 @@
     <div class="wrapper">
         <main class="main">
             <div class="title-wrapper">
-                <div class="catalog-title title container"><h2 class="catalog-title__text">{{ product.title }}</h2>
+                <div class="catalog-title title container"><h2 class="catalog-title__text">{{ product.category }}</h2>
                 </div>
             </div>
             <section class="item-card">
@@ -14,11 +14,13 @@
                     <div class="item-card__wrapper">
                         <div class="item-card__image"><img src="{{ product.photos.url }}" alt=""></div>
                         <div class="item-card__info info-item">
+                        <div class="item-products__title"><h1 style="font-size: 46px">{{ product.title }}</h1></div>
+                            <p style="font-size: 36px;">{{ product.descriptions }}</p>
                             <div class="info-item__price">{{ product.price }}грн</div>
                             {% if product.is_published %}
-                                <div class="info-item__availability available info-item">В наявності</div>
+                                <div class="info-item__availability available info-item" style="font-size: 36px">В наявності</div>
                             {% else %}
-                                <div class="info-item__availability info-item" style="background: rgba(224,42,8,0.78)">
+                                <div class="info-item__availability info-item" style="font-size: 36px;background: rgba(224,42,8,0.78)">
                                     Відсутній
                                 </div>
                             {% endif %}
