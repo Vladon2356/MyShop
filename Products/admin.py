@@ -1,6 +1,6 @@
 from django.contrib import admin
-
-from .models import Products, Category, Images, ImagesForSlider, Collection
+from Pages.models import ToOrder, PhotosForOrder
+from .models import *
 
 
 class ProductsAdmin(admin.ModelAdmin):
@@ -38,8 +38,23 @@ class CollectionAdmin(admin.ModelAdmin):
     list_editable = ('is_published',)
 
 
+class PhotoForOrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'photo')
+    list_display_links = ('id', 'photo')
+    search_fields = ('id', 'photo')
+
+
+class ToOrderAdmin(admin.ModelAdmin):
+    list_display = ('id', 'type', 'size', 'material', 'telephone_number')
+    list_display_links = ('id', 'type', 'size', 'material', 'telephone_number')
+    search_fields = ('id', 'type', 'size', 'material', 'telephone_number')
+
+
+
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Images, ImageAdmin)
 admin.site.register(ImagesForSlider, ImageForSliderAdmin)
 admin.site.register(Collection, CollectionAdmin)
+admin.site.register(ToOrder, ToOrderAdmin)
+admin.site.register(PhotosForOrder, PhotoForOrderAdmin)
