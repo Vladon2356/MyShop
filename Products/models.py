@@ -40,7 +40,7 @@ class Images(models.Model):
     image = models.ImageField(upload_to='photos/%Y/%m/%d')
 
     class Meta:
-        verbose_name = 'Фотографія '
+        verbose_name = 'Фотографія'
         verbose_name_plural = 'Фотографії'
 
     def __str__(self):
